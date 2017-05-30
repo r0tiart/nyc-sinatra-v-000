@@ -1,0 +1,28 @@
+<h1><%=@figure.name %></h1>
+
+<ul>
+		
+		<% @figure.titles.each do |title| %>
+		<h3>Titles held: </h3>
+		<li><%=title.name%></li>
+		<%end%>
+
+		<% @figure.landmarks.each do |landmark| %>
+		<h3>Landmarks:</h3>
+			<% if !!landmark.year_completed %>
+					<li><%=landmark.name%> completed in <%=landmark.year_completed %> </li>
+			<%else%>
+					<li><%=landmark.name%></li>
+				<% end %>
+		<%end%>
+
+	
+</ul>
+
+<form method="get" action="/figures/<%=@figure.id%>/edit">
+
+	<input type="hidden" name="hidden">	
+	<input type="submit" name="edit" id="edit" value="Edit Figure">
+</form>
+
+

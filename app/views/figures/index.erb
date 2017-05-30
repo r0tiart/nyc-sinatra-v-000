@@ -1,0 +1,23 @@
+<h1>Important Historical Figures</h1>
+
+<ul>
+<% @figures.each do |figure| %>
+	<h2><%=figure.name%></h2>	
+		<% figure.titles.each do |title| %>
+		<h3>Titles held: </h3>
+		<li><%=title.name%></li>
+		<%end%>
+
+		<% figure.landmarks.each do |landmark| %>
+		<h3>Landmarks:</h3>
+			<% if !!landmark.year_completed %>
+					<li><%=landmark.name%> completed in <%=landmark.year_completed %> </li> 
+			<%else%>
+					<li><%=landmark.name%></li>
+				<% end %>
+		<%end%>
+
+
+
+<%end%>
+</ul>
